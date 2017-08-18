@@ -110,11 +110,18 @@ class SiteController extends Controller
     }
 	
 	public function GetARoute( $map, $vehicleType = 0) {
+		$json = array();
 		foreach ($map as $item) {
-			$lat[] = $item['lat'];
-			$long[] = $item['long'];
+			$lat = $item['lat'];
+			$long = $item['long'];
+			$query = CachePlace::find()->where("LatitudeMax >".$lat." AND "."LatitudeMin <".$lat)->andWhere("LongitudeMax > ".$long." AND ". " LatitudeMin < ".$long)->one();
+			if ($query) {
+				$place = $query->placeID;
+				$query2 = CacheRoute::find()->where("PlaceID_A =".$place." OR PlaceID_B=".$place)->one();
+				$json[] = $query2->JsonArrayRoute;
+			}			
 		}
-		return json_encode(1);
+		return json_encode($json);
 	}
  
 
