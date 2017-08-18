@@ -46,6 +46,7 @@ $config = [
             'rules' => [
                 'push' => 'site/index',
 				'save' => 'site/save',
+				'get' => 'site/get',
             ],
         ],
         

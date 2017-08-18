@@ -57,7 +57,7 @@ class SiteController extends Controller
     }
 
     public function actionSave() {
-        $request = Yii::$app->request;
+        //$request = Yii::$app->request;
         //$post = $request->post(); 
         $post = $_GET;
         if (isset($post)) {
@@ -67,6 +67,10 @@ class SiteController extends Controller
             return json_encode(0);
         }
     }
+	
+	public function actionGet() {
+		return $this->GetARoute(array(),1);
+	}
     /**
      * 
      * @param type $placeIdA
@@ -104,6 +108,14 @@ class SiteController extends Controller
         $result = $place->save();
         return $result;
     }
+	
+	public function GetARoute( $map, $vehicleType = 0) {
+		foreach ($map as $item) {
+			$lat[] = $item['lat'];
+			$long[] = $item['long'];
+		}
+		return json_encode(1);
+	}
     
     /** 
      * Displays homepage.
@@ -112,7 +124,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $request = Yii::$app->request;
+        //$request = Yii::$app->request;
         //$post = $request->post(); 
         $post = $_GET;
         if (isset($post)) {
@@ -121,7 +133,6 @@ class SiteController extends Controller
         else {
             return json_encode(0);
         }
-        //echo "aaa";
         //return $this->render('index');
     }
 
