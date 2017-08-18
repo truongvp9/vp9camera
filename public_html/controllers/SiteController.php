@@ -61,10 +61,10 @@ class SiteController extends Controller
         //$post = $request->post(); 
         $post = $_GET;
         if (isset($post)) {
-           return $this->PushPlaceID($post['LatitudeMin'],$post['LongitudeMin'],$post['LatitudeMax'],$post['LongitudeMax'], $post['PlaceID']); 
+           return json_encode($this->PushPlaceID($post['LatitudeMin'],$post['LongitudeMin'],$post['LatitudeMax'],$post['LongitudeMax'], $post['PlaceID'])); 
         }
         else {
-            return 0;
+            return json_encode(0);
         }
     }
     /**
@@ -116,10 +116,10 @@ class SiteController extends Controller
         //$post = $request->post(); 
         $post = $_GET;
         if (isset($post)) {
-           return $this->PushNewRoute($post['placeIdA'],$post['placeIdB'],$post['arrayJsonText'],$post['vehicleType']); 
+           return json_encode($this->PushNewRoute($post['placeIdA'],$post['placeIdB'],$post['arrayJsonText'],$post['vehicleType'])); 
         }
         else {
-            return 0;
+            return json_encode(0);
         }
         //echo "aaa";
         //return $this->render('index');

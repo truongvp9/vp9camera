@@ -45,6 +45,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'push' => 'site/index',
+				'save' => 'site/save',
             ],
         ],
         
