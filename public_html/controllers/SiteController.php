@@ -116,13 +116,23 @@ class SiteController extends Controller
 		}
 		return json_encode(1);
 	}
-    
+ 
+
     /** 
      * Displays homepage.
      *
      * @return string
      */
     public function actionIndex()
+    {
+		return $this->render('index');
+	}		
+    /** 
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionPush()
     {
         //$request = Yii::$app->request;
         //$post = $request->post(); 

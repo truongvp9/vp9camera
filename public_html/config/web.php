@@ -44,7 +44,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'push' => 'site/index',
+                'push' => 'site/push',
 				'save' => 'site/save',
 				'get' => 'site/get',
             ],
